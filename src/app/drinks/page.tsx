@@ -3,7 +3,7 @@ import Item from '@/components/Item'
 import type { FoodFullInterface } from '@/types/food'
 import { useQuery } from 'react-query'
 export default function Page() {
-  const {data, isLoading, isError} = useQuery("Lanches", async ()=>{
+  const {data, isLoading, isError} = useQuery("Drinks", async ()=>{
     const request =  await fetch("/api/foods?category=Bebidas");
     return await request.json() as FoodFullInterface[];
   })
