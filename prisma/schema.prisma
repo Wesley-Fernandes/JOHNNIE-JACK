@@ -16,14 +16,6 @@ datasource db {
 enum CATEGORYS{
   Bebidas
   Lanches
-  Pizzas
-  Sobremesas
-  Salgados
-  Doces
-  Cafe
-  Marmita
-  Churrasco
-  Produtos
 }
 
 enum Status{
