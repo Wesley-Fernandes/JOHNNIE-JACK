@@ -4,6 +4,8 @@ import { NextResponse } from "next/server";
 
 export async function GET(request:Request, { params }: { params: { id: string } }){
     try {
+
+        console.log("Get by id")
         if(!params.id) return NextResponse.json({ message: "ID está faltando." }, {status: 404});
         const data = await database.food.findUnique({
             where:{

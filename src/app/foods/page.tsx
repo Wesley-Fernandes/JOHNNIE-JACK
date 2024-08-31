@@ -1,5 +1,6 @@
 "use client"
 import Item from '@/components/Item'
+import Loader from '@/components/Loader'
 import type { FoodFullInterface } from '@/types/food'
 import { useQuery } from 'react-query'
 export default function Page() {
@@ -9,7 +10,7 @@ export default function Page() {
   })
 
   if(isError) return <div>Error :(</div>
-  if(isLoading) return <div>Loading...</div>
+  if(isLoading) return <Loader/>
 
  if(data)return (
     <main className='flex items-center justify-center'>

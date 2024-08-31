@@ -5,22 +5,25 @@ import { useState } from "react";
 import { ArrowLeft} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { calculateTotal } from "@/lib/calculation";
-import { useCart } from "@/hooks/useCart";
+//import { useCart } from "@/hooks/useCart";
 import { toast } from "sonner";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import type { ComplementType, FoodFullInterface } from "@/types/food";
 import type { pageProps } from "@/types/page";
 import { useQuery } from "react-query";
+import Loader from "@/components/Loader";
+import { Quantity } from "@/components/quantity";
+import { Complement } from "@/components/Complement";
 
 export default function FoodById({params}:pageProps) {
   const [quantity, setQuantity] = useState<number>(1);
-  const {addItem} = useCart();
+  //const {addItem} = useCart();
   const [complements, setComplements] = useState<ComplementType[]>([]);
   const { isLoading, error, data } = useQuery({
     queryKey: ['food'],
     queryFn: async ()=> {
-      const req = await fetch(`/api/food/${params.id}`);
+      const req = await fetch(`/api/foods/${params.id}`);
       const result = await req.json() as FoodFullInterface;
       console.log(result)
       return result;
@@ -32,7 +35,10 @@ export default function FoodById({params}:pageProps) {
   const turnBack = () => {
     back();
   }
+
+
   const handleAddItem = () => {
+    /*
     addItem({
       category: String(data?.category),
       id: String(data?.id),
@@ -41,14 +47,17 @@ export default function FoodById({params}:pageProps) {
       quantity,
       complements,
       thumbnail: String(data?.thumbnail),
+      
      });
+
+     */
 
      toast.success("Item adicionado.");
   }
 
 
   if(!data && !isLoading && !error && data==null) return <span>Não existe.</span>;
-  if(!data && isLoading) return <span>Carregando...</span>
+  if(!data && isLoading) return <Loader/>
   if(error) return <span>Houve um erro</span>;
   if(data) return (
     <main className="flex h-[calc(100vh-3.5rem)] flex-col items-center justify-center">
