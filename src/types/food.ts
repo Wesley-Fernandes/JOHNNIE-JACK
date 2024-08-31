@@ -3,7 +3,7 @@
 
 import type { Prisma } from "@prisma/client";
 
-export type CategoryTypes = "Bebidas"|"Lanches"|"Pizzas"|"Sobremesas"|"Salgados"|"Doces"|"Cafe"|"Marmita"|"Churrasco"|"Produtos";
+export type CategoryTypes = "Bebidas"|"Lanches";
 
 export type FoodType = Prisma.FoodGetPayload<{
     select: {

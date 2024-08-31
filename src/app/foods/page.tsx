@@ -1,7 +1,23 @@
-import React from 'react'
-
+"use client"
+import Item from '@/components/Item'
+import type { FoodFullInterface } from '@/types/food'
+import { useQuery } from 'react-query'
 export default function Page() {
-  return (
-    <main>all foods</main>
+  const {data, isLoading, isError} = useQuery("Lanches", async ()=>{
+    const request =  await fetch("/api/foods?category=Lanches");
+    return await request.json() as FoodFullInterface[];
+  })
+
+  if(isError) return <div>Error :(</div>
+  if(isLoading) return <div>Loading...</div>
+
+ if(data)return (
+    <main className='flex items-center justify-center'>
+      <section className='p-4 flex flex-col flex-1 gap-4 md:container overflow-y-aut'>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 flex-col w-full">
+          {data.map((i)=>(<Item {...i} key={i.id}/>))}
+        </ul>
+     </section>
+    </main>
   )
 }
