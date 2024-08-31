@@ -6,7 +6,7 @@ import React from 'react'
 
 export default function Item(props:FoodFullInterface) {
   return (
-    <Link href={`/food/${props.id}`} className="col-span-1 flex min-h-fit p-2 rounded-md border shadow-sm cursor-pointer hover:border-red-500">
+    <Link href={`/foods/${props.id}`} className="col-span-1 flex min-h-fit p-2 rounded-md border shadow-sm cursor-pointer hover:border-red-500">
         <div className="w-24 overflow-hidden bg-green-950 rounded-md">
             <img src={props.thumbnail} alt={props.name} className="object-cover h-full"/>
         </div>
