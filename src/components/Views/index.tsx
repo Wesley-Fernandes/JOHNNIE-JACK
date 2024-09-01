@@ -1,4 +1,3 @@
 import Food from "./Food";
 
-
-export default {Food}
+export default { Food };

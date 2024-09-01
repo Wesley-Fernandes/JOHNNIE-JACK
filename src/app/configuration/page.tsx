@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function Page() {
-  return (
-    <main>Configuration</main>
-  )
+	return <main>Configuration</main>;
 }

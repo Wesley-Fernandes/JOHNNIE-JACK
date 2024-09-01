@@ -1,13 +1,13 @@
-import React from 'react'
-import { Container } from './Container'
-import { Title } from './Title'
-import Menu from './Menu'
+import React from "react";
+import { Container } from "./Container";
+import Menu from "./Menu";
+import { Title } from "./Title";
 
 export default function Navbar() {
-  return (
-    <Container>
-        <Title/>
-        <Menu/>
-    </Container>
-  )
+	return (
+		<Container>
+			<Title />
+			<Menu />
+		</Container>
+	);
 }
