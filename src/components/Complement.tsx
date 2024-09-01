@@ -5,7 +5,6 @@ import type { Dispatch } from 'react'
 import { Switch } from './ui/switch';
 interface Props{
     complement: ComplementType;
-    complements: ComplementType[];
     setComplements: Dispatch<React.SetStateAction<ComplementType[]>>;
 }
 export function Complement({complement, setComplements}:Props) {
@@ -14,8 +13,7 @@ export function Complement({complement, setComplements}:Props) {
     const  handleToggle = (checked:boolean) => {
         switch(checked){
             case true:
-                setComplements((prev:ComplementType[]) =>  [...prev, complement]);
-                return complement.price;
+                return setComplements((prev:ComplementType[]) =>  [...prev, complement])
             case false:
                 return setComplements((prev:ComplementType[]) =>  prev.filter((item) => item.name!== complement.name));
         }

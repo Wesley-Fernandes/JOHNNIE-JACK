@@ -1,4 +1,4 @@
-import { CategoryTypes, ComplementType, FoodFullInterface } from "@/types/food";
+import type { CategoryTypes, ComplementType, FoodFullInterface } from "@/types/food";
 import type { ItemType } from "@/types/Order";
 
 interface calculateTotalProps {
@@ -7,7 +7,11 @@ interface calculateTotalProps {
     complements: ComplementType[];
 }
 
-
+interface CalculatePriceProps{
+  price: number;
+  quantity: number;
+  complements?: ComplementType[];
+}
 export const calculateTotal = ({complements, quantity, data}:calculateTotalProps) => {
 
     let total = data.price * quantity;
@@ -17,6 +21,18 @@ export const calculateTotal = ({complements, quantity, data}:calculateTotalProps
     });
     return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'});
 };
+
+export const calculatePrice = ({price, quantity, complements}:CalculatePriceProps) => {
+  let total = 0;
+  if(complements){
+    // biome-ignore lint/complexity/noForEach: <explanation>
+    complements.forEach((complement) => {
+      total += complement.price * quantity;
+    });
+  }
+  return ((total + price) * quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})
+
+}
 
 interface calculateCartItemsProps{
   cart: ItemType[];
