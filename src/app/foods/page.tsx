@@ -11,7 +11,6 @@ export default function Page() {
 
 	if (isError) return <div>Error :(</div>;
 	if (isLoading) return <Loader />;
-
 	if (data)
 		return (
 			<main className="flex items-center justify-center">

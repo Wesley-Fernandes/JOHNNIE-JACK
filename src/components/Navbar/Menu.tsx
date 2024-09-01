@@ -1,3 +1,4 @@
+"use client"
 import {
 	Sheet,
 	SheetContent,
@@ -6,11 +7,12 @@ import {
 	SheetTrigger,
 } from "@/components/ui/sheet";
 import { AlignJustify } from "lucide-react";
-import React from "react";
 import { Button } from "../ui/button";
 import { Links } from "./Links";
-import { User } from "./User";
+import { useAuth } from "@/hooks/useAuth";
+import ConditionalUser from "./ConditionalUser";
 export default function Menu() {
+
 	return (
 		<Sheet>
 			<SheetTrigger asChild>
@@ -23,7 +25,7 @@ export default function Menu() {
 					<SheetTitle>MENU</SheetTitle>
 				</SheetHeader>
 				<Links />
-				<User />
+				<ConditionalUser/>
 			</SheetContent>
 		</Sheet>
 	);
