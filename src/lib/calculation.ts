@@ -38,7 +38,7 @@ export const calculatePrice = ({
 	if (complements) {
 		// biome-ignore lint/complexity/noForEach: <explanation>
 		complements.forEach((complement) => {
-			total += complement.price * quantity;
+			total += complement.price;
 		});
 	}
 	return ((total + price) * quantity).toLocaleString("pt-BR", {

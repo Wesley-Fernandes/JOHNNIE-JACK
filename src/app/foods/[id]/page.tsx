@@ -28,7 +28,7 @@ export default function FoodById({ params }: pageProps) {
 	if (data)
 		return (
 			<main className="min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] overflow-y-auto flex justify-center">
-				<section className="container grid grid-cols-1 sm:grid-cols-2 gap-2 align-middle">
+				<section className="container grid grid-cols-1 sm:grid-cols-2 gap-2 align-middle p-1">
 					<Views.Food.Information data={data} />
 					<div className="col-span-1 flex flex-col gap-2 pb-2 mt-2">
 						<Views.Food.Complements

@@ -24,8 +24,7 @@ export function Complement({ complement, setComplements }: Props) {
 	return (
 		<div
 			key={complement.name}
-			className="flex items-center justify-between gap-1"
-		>
+			className="flex items-center justify-between gap-1">
 			<div className="flex items-center gap-2">
 				<div className="w-10 h-10 border p-1 rounded-md">
 					<img
