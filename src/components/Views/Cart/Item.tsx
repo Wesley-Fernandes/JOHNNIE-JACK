@@ -23,7 +23,7 @@ export const Item = ({item, addQuantity, removeQuantity}:Props) => {
                 </div>
                 <div className="flex flex-col justify-start flex-1 h-full gap-1">
                   <h2 className="font-bold capitalize pt-1">
-                    <Link href={`/food/${item.id}`}>
+                    <Link href={`/foods/${item.id}`}>
                       {item.name}
                     </Link>
                   </h2>

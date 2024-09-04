@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export default function Information() {
 	const { food } = useFood();
 	return (
-		<Card className="col-span-1 flex flex-1 flex-col gap-2 p-2 mb-2 mt-2 w-full">
+		<Card className="col-span-7 md:col-span-4 flex flex-col gap-2 p-2 mb-2 mt-2 w-full">
 			<CardHeader>
 				<CardTitle className="font-black uppercase">{food?.name}</CardTitle>
 			</CardHeader>

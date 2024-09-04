@@ -14,7 +14,7 @@ export default function Acquisition() {
 	const {price} = useFood();
 
 	return (
-		<Card className="flex flex-col items-center gap-1 col-span-1 md:max-w-md">
+		<Card className="flex flex-1 flex-col items-center gap-1 col-span-1">
 			<CardHeader className="w-full">
 				<CardTitle className="font-black uppercase ">Detalhes</CardTitle>
 			</CardHeader>

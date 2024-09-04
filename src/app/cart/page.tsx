@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 import Views from "@/components/Views";
 import { useCart } from "@/hooks/useCart";

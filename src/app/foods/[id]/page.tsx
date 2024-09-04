@@ -21,13 +21,16 @@ export default function FoodById({ params }: pageProps) {
 	if (food && !loading)
 		return (
 			<Views.Food.Main>
-				<Views.Food.Section>
-					<Views.Food.Information/>
-					<Views.Food.Aside>
-						<Views.Food.Complements/>
-						<Views.Food.Acquisition/>
-					</Views.Food.Aside>
-				</Views.Food.Section>
+				<Views.Food.Header/>
+				<Views.Food.Container>
+					<Views.Food.Section>
+						<Views.Food.Information/>
+						<Views.Food.Aside>
+							{ food.complements.length > 0 && <Views.Food.Complements/>}
+							<Views.Food.Acquisition/>
+						</Views.Food.Aside>
+					</Views.Food.Section>
+				</Views.Food.Container>
 			</Views.Food.Main>
 		);
 }

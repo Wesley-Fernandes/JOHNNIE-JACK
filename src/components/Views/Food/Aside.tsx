@@ -6,7 +6,7 @@ interface Props{
 
 export const Aside = ({children}:Props) => {
   return (
-    <aside className="col-span-1 flex flex-col gap-2 pb-2 mt-2">
+    <aside className="col-span-7 md:col-span-3 grid grid-cols-1 gap-2 pb-2 mt-2 ">
         {children}
     </aside>
   )

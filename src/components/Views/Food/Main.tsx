@@ -6,7 +6,7 @@ interface Props{
 
 export const Main = ({children}:Props) => {
   return (
-    <main  className="min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] overflow-y-auto flex justify-center">
+    <main  className="min-h-[calc(100vh-3.5rem)] max-h-[calc(100vh-3.5rem)] flex-col flex w-screen justify-center">
         {children}
     </main>
   )

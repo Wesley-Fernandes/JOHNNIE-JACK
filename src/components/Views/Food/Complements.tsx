@@ -4,7 +4,7 @@ import { ComplementOptional } from "./ComplementOptional";
 export default function Complements() {
 
 	return (
-		<Card className="col-span-1 flex flex-1 flex-col gap-2 p-2 min-h-[218px] md:max-w-md">
+		<Card className="col-span-1 flex-col gap-2 p-2 min-h-[218px]">
 			<CardHeader>
 				<CardTitle className="font-black uppercase">Complementos</CardTitle>
 			</CardHeader>
