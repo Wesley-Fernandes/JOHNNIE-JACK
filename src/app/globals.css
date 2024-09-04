@@ -86,3 +86,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+.body::-webkit-scrollbar-track {
+  width: 80px;
+  background: orange;        /* color of the tracking area */
+}
+
+.body::-webkit-scrollbar-thumb {
+  background-color: blue;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid orange;  /* creates padding around scroll thumb */
+  width: 80px;
+}

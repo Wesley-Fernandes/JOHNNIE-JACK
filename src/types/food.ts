@@ -3,7 +3,7 @@
 
 import type { Prisma } from "@prisma/client";
 
-export type CategoryTypes = "Bebidas" | "Lanches";
+export type FoodCategoryTypes = "Bebidas" | "Lanches";
 
 export type FoodType = Prisma.FoodGetPayload<{
 	select: {
@@ -29,7 +29,7 @@ export interface FoodFullInterface {
 	id: string;
 	thumbnail: string;
 	name: string;
-	category: CategoryTypes;
+	category: FoodCategoryTypes;
 	price: number;
 	description: string;
 	complements: ComplementType[];
@@ -39,6 +39,6 @@ export interface FoodInterface {
 	id: string;
 	thumbnail: string;
 	name: string;
-	category: CategoryTypes;
+	category: FoodCategoryTypes;
 	price: number;
 }

@@ -6,7 +6,7 @@ import type {
 } from "@/types/food";
 
 interface calculateTotalProps {
-	data: FoodFullInterface;
+	data: ItemType;
 	quantity: number;
 	complements: ComplementType[];
 }
