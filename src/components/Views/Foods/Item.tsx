@@ -3,7 +3,7 @@ import type { FoodFullInterface } from "@/types/food";
 import Link from "next/link";
 import React from "react";
 
-export default function Item(props: FoodFullInterface) {
+export function Item(props: FoodFullInterface) {
 	return (
 		<Link
 			href={`/foods/${props.id}`}

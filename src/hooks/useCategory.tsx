@@ -1,5 +1,4 @@
-import { categorys } from "@/constants/constants";
-import { CategoryTypes } from "@/types/food";
+import type { CategoryTypes } from "@/types/food";
 import {create} from "zustand";
 
 interface Props{

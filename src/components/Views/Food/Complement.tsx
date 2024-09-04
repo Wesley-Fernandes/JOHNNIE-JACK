@@ -1,26 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { Switch } from "@/components/ui/switch";
 import type { ComplementType } from "@/types/food";
-import type { Dispatch } from "react";
-import { Switch } from "./ui/switch";
+
 interface Props {
 	complement: ComplementType;
-	setComplements: Dispatch<React.SetStateAction<ComplementType[]>>;
+	setComplement: (value: ComplementType) => void;
+	removeComplement: (id: string) => void;
 }
-export function Complement({ complement, setComplements }: Props) {
+
+
+export const Complement = ({complement, setComplement, removeComplement}: Props) => {
 	const handleToggle = (checked: boolean) => {
 		switch (checked) {
 			case true:
-				return setComplements((prev: ComplementType[]) => [
-					...prev,
-					complement,
-				]);
+				return setComplement(complement);
 			case false:
-				return setComplements((prev: ComplementType[]) =>
-					prev.filter((item) => item.name !== complement.name),
-				);
+				return removeComplement(complement.id);
 		}
 	};
+
 	return (
 		<div
 			key={complement.name}
@@ -45,5 +44,5 @@ export function Complement({ complement, setComplements }: Props) {
 			</div>
 			<Switch onCheckedChange={handleToggle} />
 		</div>
-	);
+  )
 }

@@ -1,26 +1,29 @@
 "use client";
-import Item from "@/components/Item";
 import Loader from "@/components/Loader";
-import type { FoodFullInterface } from "@/types/food";
-import { useQuery } from "react-query";
+import Views from "@/components/Views";
+import { getFoodsByType } from "@/lib/food";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import type { FoodCategoryTypes, FoodFullInterface } from "@/types/food";
 export default function Page() {
-	const { data, isLoading, isError } = useQuery("Lanches", async () => {
-		const request = await fetch("/api/foods?category=Lanches");
-		return (await request.json()) as FoodFullInterface[];
-	});
+	const params = useSearchParams();
+	const type =  params.get('type') as FoodCategoryTypes;
+	const [loading, setLoading] = useState(true);
+	const [foods, setFoods] = useState<FoodFullInterface[]>([]);
 
-	if (isError) return <div>Error :(</div>;
-	if (isLoading) return <Loader />;
-	if (data)
+	useEffect(()=>{
+		getFoodsByType({setFoods, setLoading, type: type||"Bebidas"})
+	}, [type])
+
+	if (loading) return <Loader />;
+	if(!loading && !foods) return <span>Sem dados para mostrar</span>
+	if (foods)
 		return (
-			<main className="flex items-center justify-center">
-				<section className="p-4 flex flex-col flex-1 gap-4 md:container overflow-y-aut">
-					<ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 flex-col w-full">
-						{data.map((i) => (
-							<Item {...i} key={i.id} />
-						))}
-					</ul>
-				</section>
-			</main>
+			<Views.Foods.Main>
+				<Views.Foods.Header label={String(type?.toUpperCase())}/>
+				<Views.Foods.Section>
+					<Views.Foods.Items data={foods}/>
+				</Views.Foods.Section>
+			</Views.Foods.Main>
 		);
 }

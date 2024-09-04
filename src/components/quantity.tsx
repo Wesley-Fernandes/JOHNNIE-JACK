@@ -2,21 +2,19 @@
 import { Minus, Plus } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { useFood } from "@/hooks/useFood";
 
-interface Props {
-	quantity: number;
-	setQuantity: React.Dispatch<React.SetStateAction<number>>;
-}
-export function Quantity({ quantity, setQuantity }: Props) {
+export function Quantity() {
+	const {quantity, increaseQuantity, descreseQuantity} = useFood();
 	const handleDecrement = () => {
 		if (quantity > 1) {
-			setQuantity((prev: number) => prev - 1);
+			descreseQuantity();
 		}
 	};
 
 	const handleIncrement = () => {
 		if (quantity < 9) {
-			setQuantity((prev: number) => prev + 1);
+			increaseQuantity();
 		}
 	};
 	return (

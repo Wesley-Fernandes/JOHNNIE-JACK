@@ -11,13 +11,13 @@ export function Links() {
 					<span>Inicio</span>
 				</div>
 			</Jumper>
-			<Jumper href="/foods">
+			<Jumper href="/foods?type=Lanches">
 				<div className="flex items-center gap-2">
 					<Sandwich strokeWidth={1.2} />
 					<span>Lanches</span>
 				</div>
 			</Jumper>
-			<Jumper href="/drinks">
+			<Jumper href="/foods?type=Bebidas">
 				<div className="flex items-center gap-2">
 					<CupSoda strokeWidth={1.2} />
 					<span>Bebidas</span>
